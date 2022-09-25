@@ -5,6 +5,7 @@ const { animals } = require('./data/animals');
 const { rawListeners } = require('process');
 
 const PORT = process.env.PORT || 5000;
+const host = '0.0.0.0';
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -110,6 +111,6 @@ app.get('/zookeepers', (req, res) => {
   res.sendFile(path.join(__dirname, './public/zookeepers.html'));
 })
 
-app.listen(5000, () => {
+app.listen(PORT, host, function () {
   console.log(`API server now on port ${PORT}!`);
 });
